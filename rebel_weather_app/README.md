@@ -1,6 +1,6 @@
 # 🌌 Rebel Weather - App de Clima Galáctica
 
-**Módulo 3 – App de Clima (Interfaz y Estilos)**
+**Módulo 4 – App de Clima (Lógica y Estadísticas en JavaScript)**
 
 Una aplicación web minimalista para consultar las condiciones atmosféricas de diferentes planetas y sistemas de la galaxia. Desarrollada con HTML, CSS/SASS, Bootstrap 4 y JavaScript vanilla.
 
@@ -8,10 +8,33 @@ Una aplicación web minimalista para consultar las condiciones atmosféricas de 
 
 Rebel Weather es una interfaz de clima con temática de Star Wars que muestra información meteorológica de diferentes planetas de la galaxia. La aplicación permite:
 
-- Ver un listado de planetas con su clima actual en cards responsivas
+- Ver un listado de 10 planetas con su clima actual en cards responsivas
 - Acceder a información detallada de cada planeta
-- Consultar pronósticos semanales
+- Consultar pronósticos semanales (7 días)
+- **Ver estadísticas calculadas dinámicamente:**
+  - Temperatura mínima, máxima y promedio de la semana
+  - Distribución de días por tipo de clima
+  - Resumen textual generado automáticamente
 - Recibir consejos de supervivencia según las condiciones climáticas
+
+## 📊 Modelado de Datos (Módulo 4)
+
+Los datos de clima están organizados en un **array de objetos** (`PLANETAS`) definido en `assets/js/data.js`. Cada planeta contiene:
+
+- Información básica: `id`, `nombre`, `descripcion`
+- Datos climáticos actuales: `temperatura`, `estado`, `humedad`, `viento`
+- Contenido adicional: `humor_clima`, `consejo_supervivencia`, `icono`
+- **Pronóstico semanal**: Array `semanal` con 7 objetos, cada uno con `dia`, `temperatura`, `icono`, `estado`
+
+### Estadísticas Calculadas
+
+La aplicación calcula automáticamente en JavaScript:
+
+1. **Temperatura mínima** de la semana (usando ciclo `for` y condicionales)
+2. **Temperatura máxima** de la semana
+3. **Temperatura promedio** (suma de temperaturas / cantidad de días)
+4. **Conteo de días por tipo de clima** (usando objeto como contador)
+5. **Resumen textual** generado según temperatura promedio y clima predominante
 
 ## 🎨 Metodología de Estilos
 
@@ -145,17 +168,26 @@ rebel_weather_app/
 ## 👨‍💻 Autor
 
 **Tu Nombre**
-- Módulo 3 - Curso Frontend
+- Módulos 3 y 4 - Curso Frontend
 - Año 2026
 
 ## 📝 Notas de Desarrollo
 
-Este proyecto es la tercera iteración de la aplicación de clima, enfocándose en:
-- Refactorización de estilos con metodología BEM
+Este proyecto incluye las iteraciones de los Módulos 3 y 4:
+
+**Módulo 3:**
+- Refactorización de estilos con metodología BEM en español
 - Implementación de SASS con arquitectura modular
 - Uso de Bootstrap 4 para layout responsivo
 - Mejora de la experiencia visual y mantenibilidad del código
 
+**Módulo 4:**
+- Modelado de datos con arrays y objetos en JavaScript
+- Implementación de ciclos (`for`, `forEach`) para procesar pronósticos
+- Uso de condicionales para generar resúmenes dinámicos
+- Funciones reutilizables: `calcularEstadisticasSemana()`, `renderizarTarjetasPlanetas()`, `cargarDetallesPlaneta()`
+- Manipulación del DOM para mostrar estadísticas calculadas
+
 ---
 
-*© Rebel Alliance Systems - Módulo 3 – App de Clima (Interfaz y Estilos)*
+*© Rebel Alliance Systems - Módulos 3 y 4 – App de Clima*

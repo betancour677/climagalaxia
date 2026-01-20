@@ -74,6 +74,58 @@
       </div>
     </section>
 
+    <!-- ESTADÍSTICAS DE LA SEMANA (MÓDULO 4) -->
+    <section class="mb-5">
+      <h3 class="h4 font-weight-bold text-center mb-4">📊 Estadísticas de la Semana</h3>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <!-- Temperaturas -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <h5 class="font-weight-bold mb-3">Temperaturas</h5>
+              <div class="row text-center">
+                <div class="col-4">
+                  <div class="p-3 bg-light rounded">
+                    <small class="text-muted d-block mb-1">MÍNIMA</small>
+                    <h4 class="mb-0 text-primary" id="tempMinima">--°C</h4>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="p-3 bg-light rounded">
+                    <small class="text-muted d-block mb-1">PROMEDIO</small>
+                    <h4 class="mb-0 text-success" id="tempPromedio">--°C</h4>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="p-3 bg-light rounded">
+                    <small class="text-muted d-block mb-1">MÁXIMA</small>
+                    <h4 class="mb-0 text-danger" id="tempMaxima">--°C</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conteo de Climas -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <h5 class="font-weight-bold mb-3">Distribución del Clima</h5>
+              <div id="conteoClimas" class="row">
+                <!-- Se llenará dinámicamente con JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Resumen -->
+          <div class="alert alert-info mb-0">
+            <h6 class="font-weight-bold mb-2">📝 Resumen Semanal</h6>
+            <p id="resumenSemana" class="mb-0">Calculando resumen...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Pronóstico Semanal -->
     <section>
       <h3 class="h5 font-weight-bold text-center text-muted mb-4 text-uppercase tracking-amplio">Próximos 7 días</h3>

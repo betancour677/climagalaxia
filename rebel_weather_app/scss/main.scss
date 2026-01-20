@@ -1,0 +1,19 @@
+// ============================================
+// MAIN SCSS - Rebel Weather App
+// ============================================
+// Este archivo importa todos los parciales SASS
+
+// === GOOGLE FONTS ===
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+// === BASE ===
+@import 'base/variables';
+@import 'base/mixins';
+
+// === LAYOUT ===
+@import 'layout/layout';
+
+// === COMPONENTS ===
+@import 'components/place-card';
+@import 'components/detail-card';
+@import 'components/buttons';

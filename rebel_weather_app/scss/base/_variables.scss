@@ -1,0 +1,47 @@
+// ============================================
+// VARIABLES - Rebel Weather App
+// ============================================
+
+// === COLORES ===
+$color-fondo-claro: #f8f9fa;
+$color-fondo-blanco: #ffffff;
+$color-texto-primario: #212529;
+$color-texto-secundario: #6c757d;
+$color-acento: #000000;
+$color-borde-sutil: rgba(0, 0, 0, 0.03);
+$color-sombra-clara: rgba(0, 0, 0, 0.08);
+$color-sombra-media: rgba(0, 0, 0, 0.2);
+
+// === TIPOGRAFÍA ===
+$fuente-primaria: 'Inter', sans-serif;
+$peso-ligero: 300;
+$peso-regular: 400;
+$peso-semibold: 600;
+$peso-bold: 800;
+
+// === TAMAÑOS ===
+$tamaño-fuente-pequeño: 0.75rem;
+$tamaño-fuente-base: 1rem;
+$tamaño-fuente-grande: 1.25rem;
+$tamaño-fuente-extra-grande: 1.4rem;
+
+// === ESPACIADO ===
+$espaciado-xs: 0.5rem;
+$espaciado-sm: 1rem;
+$espaciado-md: 1.5rem;
+$espaciado-lg: 2rem;
+$espaciado-xl: 3rem;
+
+// === BORDES Y RADIOS ===
+$radio-borde-sm: 10px;
+$radio-borde-md: 20px;
+$radio-borde-lg: 50px;
+
+// === TRANSICIONES ===
+$transicion-base: 0.2s ease;
+$transicion-suave: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+// === BREAKPOINTS ===
+$breakpoint-movil: 420px;
+$breakpoint-tablet: 768px;
+$breakpoint-escritorio: 1024px;

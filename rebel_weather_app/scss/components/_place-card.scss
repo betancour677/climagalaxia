@@ -1,0 +1,82 @@
+// ============================================
+// TARJETA DE LUGAR - Rebel Weather App
+// ============================================
+
+.tarjeta-lugar {
+    @include tarjeta-base;
+    height: 100%;
+    overflow: hidden;
+    border: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    // Imagen del lugar
+    &__imagen {
+        height: 260px;
+        overflow: hidden;
+        background: $color-acento;
+        position: relative;
+    }
+
+    // Cuerpo de la tarjeta
+    &__cuerpo {
+        padding: $espaciado-md;
+        text-align: center;
+    }
+
+    // Título (nombre del lugar)
+    &__titulo {
+        font-size: $tamaño-fuente-extra-grande;
+        font-weight: $peso-bold;
+        color: $color-texto-primario;
+        margin-bottom: $espaciado-xs;
+    }
+
+    // Estado del clima
+    &__estado {
+        font-size: $tamaño-fuente-pequeño;
+        color: $color-texto-secundario;
+        text-transform: uppercase;
+        @include texto-tracking-amplio;
+        margin-bottom: $espaciado-sm;
+    }
+
+    // Descripción
+    &__descripcion {
+        font-size: $tamaño-fuente-pequeño;
+        color: $color-texto-secundario;
+        margin-bottom: $espaciado-md;
+    }
+
+    // Footer de la tarjeta
+    &__pie {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $color-borde-sutil;
+        padding-top: $espaciado-sm;
+    }
+
+    // Temperatura
+    &__temperatura {
+        font-size: 2rem;
+        font-weight: $peso-bold;
+        color: $color-texto-primario;
+    }
+
+    // Botón de ver detalle
+    &__boton {
+        @include boton-pildora;
+        background: $color-acento;
+        color: $color-fondo-blanco;
+        border: none;
+        padding: 0.25rem $espaciado-md;
+        font-size: $tamaño-fuente-pequeño;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    // Efecto hover en toda la tarjeta
+    &--hover {
+        @include elevacion-hover;
+    }
+}

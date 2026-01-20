@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-clima__encabezado {
+  padding: 1.5rem 0;
+}
+.app-clima__navbar {
+  background: transparent;
+}
+.app-clima__marca {
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.app-clima__principal {
+  padding: 1.5rem 0;
+  min-height: 60vh;
+}
+
+.app-clima__pie {
+  padding: 3rem 0;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.app-clima__pie-texto {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.tracking-ajustado {
+  letter-spacing: -0.5px;
+}
+
+.tracking-amplio {
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.tarjeta-lugar {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 100%;
+  overflow: hidden;
+  border: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.tarjeta-lugar__imagen {
+  height: 260px;
+  overflow: hidden;
+  background: #000000;
+  position: relative;
+}
+.tarjeta-lugar__cuerpo {
+  padding: 1.5rem;
+  text-align: center;
+}
+.tarjeta-lugar__titulo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+.tarjeta-lugar__estado {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.tarjeta-lugar__descripcion {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+.tarjeta-lugar__pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+  padding-top: 1rem;
+}
+.tarjeta-lugar__temperatura {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #212529;
+}
+.tarjeta-lugar__boton {
+  border-radius: 50px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.tarjeta-lugar__boton:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.tarjeta-lugar__boton {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 0.25rem 1.5rem;
+  font-size: 0.75rem;
+  text-decoration: none;
+  display: inline-block;
+}
+.tarjeta-lugar--hover {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.tarjeta-lugar--hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.tarjeta-detalle {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+.tarjeta-detalle__icono {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #000000;
+}
+.tarjeta-detalle__temperatura {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+.tarjeta-detalle__estado {
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.tarjeta-detalle__humor {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+.tarjeta-detalle__estadisticas {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+.tarjeta-detalle__estadistica {
+  text-align: center;
+}
+.tarjeta-detalle__estadistica-etiqueta {
+  display: block;
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+.tarjeta-detalle__estadistica-valor {
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.tarjeta-pronostico {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 1rem;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.tarjeta-pronostico__dia {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+.tarjeta-pronostico__icono {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+.tarjeta-pronostico__temperatura {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+.tarjeta-pronostico__estado {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.tarjeta-supervivencia {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background: #f8f9fa;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.tarjeta-supervivencia__contenido {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+}
+.tarjeta-supervivencia__icono {
+  font-size: 2rem;
+}
+.tarjeta-supervivencia__titulo {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.tarjeta-supervivencia__texto {
+  margin-bottom: 0;
+  color: #6c757d;
+}
+
+.boton--primario {
+  border-radius: 50px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.boton--primario:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.boton--primario {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+}
+.boton--contorno {
+  border-radius: 50px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.boton--contorno:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.boton--contorno {
+  background: transparent;
+  color: #000000;
+  border: 1px solid #000000;
+}
+.boton--contorno:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.btn-dark {
+  border-radius: 50px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-dark:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/*# sourceMappingURL=main.css.map */

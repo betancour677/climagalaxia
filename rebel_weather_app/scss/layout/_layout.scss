@@ -1,0 +1,55 @@
+// ============================================
+// LAYOUT - Rebel Weather App
+// ============================================
+
+// === BODY ===
+body {
+    font-family: $fuente-primaria;
+    background-color: $color-fondo-claro;
+    color: $color-texto-primario;
+    -webkit-font-smoothing: antialiased;
+}
+
+// === HEADER / NAVBAR ===
+.app-clima {
+    &__encabezado {
+        padding: $espaciado-md 0;
+    }
+
+    &__navbar {
+        background: transparent;
+    }
+
+    &__marca {
+        font-weight: $peso-bold;
+        font-size: $tamaño-fuente-grande;
+        @include texto-tracking-ajustado;
+    }
+}
+
+// === MAIN CONTENT ===
+.app-clima__principal {
+    padding: $espaciado-md 0;
+    min-height: 60vh;
+}
+
+// === FOOTER ===
+.app-clima__pie {
+    padding: $espaciado-xl 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+    &-texto {
+        font-size: $tamaño-fuente-pequeño;
+        opacity: 0.5;
+    }
+}
+
+// === UTILIDADES DE TEXTO ===
+.tracking-ajustado {
+    @include texto-tracking-ajustado;
+}
+
+.tracking-amplio {
+    @include texto-tracking-amplio;
+}

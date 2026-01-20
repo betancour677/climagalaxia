@@ -1,0 +1,132 @@
+// ============================================
+// TARJETA DE DETALLE - Rebel Weather App
+// ============================================
+
+.tarjeta-detalle {
+    @include tarjeta-base;
+    padding: $espaciado-xl;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+    // Icono/imagen del planeta
+    &__icono {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto $espaciado-md;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: $color-acento;
+    }
+
+    // Temperatura principal
+    &__temperatura {
+        font-size: 4rem;
+        font-weight: $peso-bold;
+        margin-bottom: 0;
+    }
+
+    // Estado del clima
+    &__estado {
+        color: $color-texto-secundario;
+        text-transform: uppercase;
+        @include texto-tracking-amplio;
+        margin-bottom: $espaciado-sm;
+    }
+
+    // Texto humorístico
+    &__humor {
+        font-size: $tamaño-fuente-grande;
+        font-style: italic;
+        color: $color-texto-secundario;
+        margin-bottom: $espaciado-md;
+    }
+
+    // Sección de estadísticas (humedad, viento)
+    &__estadisticas {
+        display: flex;
+        justify-content: center;
+        gap: $espaciado-xl;
+        margin-top: $espaciado-md;
+        padding-top: $espaciado-md;
+        border-top: 1px solid $color-borde-sutil;
+    }
+
+    &__estadistica {
+        text-align: center;
+
+        &-etiqueta {
+            display: block;
+            font-size: $tamaño-fuente-pequeño;
+            color: $color-texto-secundario;
+            margin-bottom: $espaciado-xs;
+        }
+
+        &-valor {
+            font-weight: $peso-bold;
+            font-size: $tamaño-fuente-grande;
+        }
+    }
+}
+
+// === TARJETAS DE PRONÓSTICO (Pronóstico semanal) ===
+.tarjeta-pronostico {
+    @include tarjeta-base;
+    padding: $espaciado-sm;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    &__dia {
+        font-size: $tamaño-fuente-pequeño;
+        font-weight: $peso-bold;
+        text-transform: uppercase;
+        color: $color-texto-secundario;
+        margin-bottom: $espaciado-xs;
+    }
+
+    &__icono {
+        font-size: 2rem;
+        margin: $espaciado-xs 0;
+    }
+
+    &__temperatura {
+        font-size: $tamaño-fuente-grande;
+        font-weight: $peso-bold;
+        margin-bottom: 0;
+    }
+
+    &__estado {
+        font-size: $tamaño-fuente-pequeño;
+        color: $color-texto-secundario;
+    }
+}
+
+// === TARJETA DE CONSEJO DE SUPERVIVENCIA ===
+.tarjeta-supervivencia {
+    @include tarjeta-base;
+    background: $color-fondo-claro;
+    padding: $espaciado-md;
+    max-width: 600px;
+    margin: 0 auto;
+
+    &__contenido {
+        display: flex;
+        align-items: start;
+        gap: $espaciado-sm;
+    }
+
+    &__icono {
+        font-size: 2rem;
+    }
+
+    &__titulo {
+        font-weight: $peso-bold;
+        margin-bottom: $espaciado-xs;
+    }
+
+    &__texto {
+        margin-bottom: 0;
+        color: $color-texto-secundario;
+    }
+}

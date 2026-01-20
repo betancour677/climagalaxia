@@ -1,0 +1,47 @@
+// ============================================
+// MIXINS - Rebel Weather App
+// ============================================
+
+// Mixin para hover con elevación
+@mixin elevacion-hover {
+    transition: transform $transicion-suave, box-shadow $transicion-suave;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px $color-sombra-clara;
+        cursor: pointer;
+    }
+}
+
+// Mixin para botones píldora
+@mixin boton-pildora {
+    border-radius: $radio-borde-lg;
+    padding-left: $espaciado-lg;
+    padding-right: $espaciado-lg;
+    font-weight: 500;
+    transition: all $transicion-base;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 5px 15px $color-sombra-media;
+    }
+}
+
+// Mixin para texto con tracking
+@mixin texto-tracking-ajustado {
+    letter-spacing: -0.5px;
+}
+
+@mixin texto-tracking-amplio {
+    letter-spacing: 2px;
+    font-size: $tamaño-fuente-pequeño;
+    font-weight: $peso-semibold;
+}
+
+// Mixin para cards
+@mixin tarjeta-base {
+    background: $color-fondo-blanco;
+    border: 1px solid $color-borde-sutil;
+    border-radius: $radio-borde-md;
+    transition: transform $transicion-suave, box-shadow $transicion-suave;
+}

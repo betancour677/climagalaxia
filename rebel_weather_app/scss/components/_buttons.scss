@@ -1,0 +1,29 @@
+// ============================================
+// BOTONES - Rebel Weather App
+// ============================================
+
+.boton {
+    &--primario {
+        @include boton-pildora;
+        background: $color-acento;
+        color: $color-fondo-blanco;
+        border: none;
+    }
+
+    &--contorno {
+        @include boton-pildora;
+        background: transparent;
+        color: $color-acento;
+        border: 1px solid $color-acento;
+
+        &:hover {
+            background: $color-acento;
+            color: $color-fondo-blanco;
+        }
+    }
+}
+
+// Compatibilidad con Bootstrap
+.btn-dark {
+    @include boton-pildora;
+}

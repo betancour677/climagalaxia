@@ -1,0 +1,90 @@
+/* Rebel Weather App - Minimalist Style */
+
+/* === 1. Tipografía y Bases === */
+/* Usamos 'Inter' para un look ultra-moderno y limpio */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --accent: #000000;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    /* Texto más nítido en Mac */
+}
+
+/* === 2. Utilidades de Texto === */
+.tracking-tight {
+    letter-spacing: -0.5px;
+}
+
+.tracking-wide {
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* === 3. Tarjetas Minimalistas === */
+.card {
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+        box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    /* Borde casi invisible */
+}
+
+/* Hover: Elevación sutil */
+.hover-effect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer;
+}
+
+/* === 4. Iconos y Elementos === */
+#planetIcon {
+    /* Eliminamos la animación de flotación para ser más serios/minimalistas */
+    /* Opcional: Filtro sepia o escala de grises si quisiéramos menos color */
+}
+
+/* === 5. Botones === */
+.btn-dark {
+    border-radius: 50px;
+    /* Botones píldora */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-dark:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-warning {
+    /* Reemplazamos el botón amarillo por uno minimalista negro */
+    /* Esto es para compatibilidad con código JS viejo si quedara algo */
+    color: #000;
+    border-color: #000;
+}
+
+.btn-outline-warning:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* === 6. Navbar === */
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}

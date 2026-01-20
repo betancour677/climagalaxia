@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Detalle - Rebel Weather</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+  <!-- Navbar Responsivo (Minimal) -->
+  <!-- Navbar Responsivo (Minimal) -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-dark tracking-tight" href="index.html">REBEL WEATHER</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navDetail">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navDetail" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto gap-3">
+            <li class="nav-item"><a class="nav-link text-dark fw-medium" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link text-secondary" href="about.html">Acerca</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="container py-5">
+
+    <!-- Título de la localidad -->
+    <h1 id="planetName" class="display-3 fw-bold text-center mb-5">Cargando...</h1>
+
+    <!-- Tarjeta de detalle principal -->
+    <div class="row justify-content-center mb-5">
+      <article class="col-12 col-md-8 col-lg-6">
+        <div class="card border-0 shadow-sm p-5 text-center bg-white rounded-3">
+          <div id="planetIcon" class="mb-4 mx-auto overflow-hidden rounded-4 shadow-sm"
+            style="width: 250px; height: 250px; background: #000;"></div>
+          <p class="display-2 fw-bold mb-0" id="planetTemp"></p>
+          <p class="text-secondary text-uppercase tracking-wide mb-3" id="planetState"></p>
+
+          <!-- Descripción Humorística -->
+          <p class="fs-5 fst-italic text-muted mb-4" id="planetHumor"></p>
+
+          <div class="d-flex justify-content-center gap-5 mt-4 pt-4 border-top">
+            <div class="text-center">
+              <small class="text-muted d-block mb-1">HUMEDAD</small>
+              <span id="planetHumidity" class="fw-bold fs-5">--%</span>
+            </div>
+            <div class="text-center">
+              <small class="text-muted d-block mb-1">VIENTO</small>
+              <span id="planetWind" class="fw-bold fs-5">-- km/h</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Guía de Supervivencia (Nueva Sección) -->
+    <section class="mb-5">
+      <div class="card border-0 bg-light rounded-3 p-4 mx-auto" style="max-width: 600px;">
+        <div class="d-flex align-items-start gap-3">
+          <div class="fs-1">🎒</div>
+          <div>
+            <h4 class="fw-bold mb-1">Guía de Supervivencia Rebelde</h4>
+            <p class="mb-0 text-secondary" id="survivalTip">Cargando consejo...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pronóstico Semanal -->
+    <section>
+      <h3 class="h5 fw-bold text-center text-muted mb-4 text-uppercase tracking-wide">Próximos 7 días</h3>
+      <div id="forecast" class="row g-3 justify-content-center">
+        <!-- Se llenará con JS -->
+      </div>
+    </section>
+
+    <div class="text-center mt-5">
+      <a href="index.html" class="btn btn-dark px-5 py-2 rounded-pill">← Volver</a>
+    </div>
+
+  </main>
+
+  <footer class="container py-5 mt-auto">
+    <hr class="opacity-10 mb-5">
+    <div class="text-center">
+      <p class="text-secondary small opacity-50 mb-1">© Rebel Alliance Systems</p>
+      <p class="text-secondary x-small opacity-50">Módulo 2 – Detalle de Localidad</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Scripts propios -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

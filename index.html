@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rebel Weather — Clima Galáctico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-light text-dark">
+    <header class="container py-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <span class="fw-bold text-dark tracking-tight">REBEL WEATHER</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navMain" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold text-dark border-bottom border-dark"
+                            href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="about.html">Acerca</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <section class="mb-5 text-center px-2">
+            <h1 class="display-6 fw-bold mb-2">Pronóstico Galáctico</h1>
+            <p class="text-secondary small text-uppercase tracking-wide">Monitor de sistemas en tiempo real</p>
+        </section>
+
+        <!-- Aquí se inyectarán las tarjetas desde JavaScript -->
+        <section id="cards-container" class="row g-4" aria-live="polite"></section>
+    </main>
+
+    <footer class="container py-5 mt-auto">
+        <hr class="opacity-10 mb-5">
+        <div class="text-center">
+            <p class="text-secondary small opacity-50 mb-1">© Rebel Alliance Systems</p>
+            <p class="text-secondary x-small opacity-50">Módulo 2 – App de Clima (Frontend)</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Sobre Rebel Weather</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-secondary">
+                    <p>Una interfaz minimalista para consultar las condiciones atmosféricas de la galaxia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

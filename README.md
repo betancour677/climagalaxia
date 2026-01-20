@@ -5,7 +5,7 @@
 ## 🔗 Enlaces del Proyecto
 
 - **Repositorio Público:** [climagalaxia](https://github.com/betancour677/climagalaxia.git)
-- **Demo en Vivo:** [GitHub Pages](https://betancour677.github.io/climagalaxia/)
+
 
 ## 📋 Propósito y Alcance (MVP)
 
@@ -36,7 +36,7 @@ Este proyecto es la primera versión (MVP) de una aplicación de clima diseñada
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/weather-frontend-m2.git
+   git clone https://github.com/betancour677/climagalaxia.git
    ```
 2. Navega a la carpeta del proyecto:
    ```bash

@@ -4,27 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
   <title>Detalle - Rebel Weather</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light text-dark">
 
   <!-- Navbar Responsivo (Minimal) -->
   <!-- Navbar Responsivo (Minimal) -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4">
+  <header class="app-clima__encabezado">
+    <nav class="app-clima__navbar navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <a class="navbar-brand fw-bold text-dark tracking-tight" href="index.html">REBEL WEATHER</a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navDetail">
+        <a class="app-clima__marca navbar-brand" href="index.html">REBEL WEATHER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDetail">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navDetail" class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto gap-3">
-            <li class="nav-item"><a class="nav-link text-dark fw-medium" href="index.html">Inicio</a></li>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link text-secondary" href="about.html">Acerca</a></li>
           </ul>
         </div>
@@ -33,45 +31,96 @@
   </header>
 
   <!-- Contenido Principal -->
-  <main class="container py-5">
+  <main class="app-clima__principal container">
 
     <!-- Título de la localidad -->
-    <h1 id="planetName" class="display-3 fw-bold text-center mb-5">Cargando...</h1>
+    <h1 id="nombrePlaneta" class="display-3 font-weight-bold text-center mb-5">Cargando...</h1>
 
     <!-- Tarjeta de detalle principal -->
     <div class="row justify-content-center mb-5">
       <article class="col-12 col-md-8 col-lg-6">
-        <div class="card border-0 shadow-sm p-5 text-center bg-white rounded-3">
-          <div id="planetIcon" class="mb-4 mx-auto overflow-hidden rounded-4 shadow-sm"
-            style="width: 250px; height: 250px; background: #000;"></div>
-          <p class="display-2 fw-bold mb-0" id="planetTemp"></p>
-          <p class="text-secondary text-uppercase tracking-wide mb-3" id="planetState"></p>
+        <div class="tarjeta-detalle">
+          <div id="iconoPlaneta" class="tarjeta-detalle__icono"></div>
+          <p class="tarjeta-detalle__temperatura" id="temperaturaPlaneta"></p>
+          <p class="tarjeta-detalle__estado" id="estadoPlaneta"></p>
 
           <!-- Descripción Humorística -->
-          <p class="fs-5 fst-italic text-muted mb-4" id="planetHumor"></p>
+          <p class="tarjeta-detalle__humor" id="humorPlaneta"></p>
 
-          <div class="d-flex justify-content-center gap-5 mt-4 pt-4 border-top">
-            <div class="text-center">
-              <small class="text-muted d-block mb-1">HUMEDAD</small>
-              <span id="planetHumidity" class="fw-bold fs-5">--%</span>
+          <div class="tarjeta-detalle__estadisticas">
+            <div class="tarjeta-detalle__estadistica">
+              <small class="tarjeta-detalle__estadistica-etiqueta">HUMEDAD</small>
+              <span id="humedadPlaneta" class="tarjeta-detalle__estadistica-valor">--%</span>
             </div>
-            <div class="text-center">
-              <small class="text-muted d-block mb-1">VIENTO</small>
-              <span id="planetWind" class="fw-bold fs-5">-- km/h</span>
+            <div class="tarjeta-detalle__estadistica">
+              <small class="tarjeta-detalle__estadistica-etiqueta">VIENTO</small>
+              <span id="vientoPlaneta" class="tarjeta-detalle__estadistica-valor">-- km/h</span>
             </div>
           </div>
         </div>
       </article>
     </div>
 
-    <!-- Guía de Supervivencia (Nueva Sección) -->
+    <!-- Guía de Supervivencia -->
     <section class="mb-5">
-      <div class="card border-0 bg-light rounded-3 p-4 mx-auto" style="max-width: 600px;">
-        <div class="d-flex align-items-start gap-3">
-          <div class="fs-1">🎒</div>
+      <div class="tarjeta-supervivencia">
+        <div class="tarjeta-supervivencia__contenido">
+          <div class="tarjeta-supervivencia__icono">🎒</div>
           <div>
-            <h4 class="fw-bold mb-1">Guía de Supervivencia Rebelde</h4>
-            <p class="mb-0 text-secondary" id="survivalTip">Cargando consejo...</p>
+            <h4 class="tarjeta-supervivencia__titulo">Guía de Supervivencia Rebelde</h4>
+            <p class="tarjeta-supervivencia__texto" id="consejoSupervivencia">Cargando consejo...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTADÍSTICAS DE LA SEMANA (MÓDULO 4) -->
+    <section class="mb-5">
+      <h3 class="h4 font-weight-bold text-center mb-4">📊 Estadísticas de la Semana</h3>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <!-- Temperaturas -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <h5 class="font-weight-bold mb-3">Temperaturas</h5>
+              <div class="row text-center">
+                <div class="col-4">
+                  <div class="p-3 bg-light rounded">
+                    <small class="text-muted d-block mb-1">MÍNIMA</small>
+                    <h4 class="mb-0 text-primary" id="tempMinima">--°C</h4>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="p-3 bg-light rounded">
+                    <small class="text-muted d-block mb-1">PROMEDIO</small>
+                    <h4 class="mb-0 text-success" id="tempPromedio">--°C</h4>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="p-3 bg-light rounded">
+                    <small class="text-muted d-block mb-1">MÁXIMA</small>
+                    <h4 class="mb-0 text-danger" id="tempMaxima">--°C</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conteo de Climas -->
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <h5 class="font-weight-bold mb-3">Distribución del Clima</h5>
+              <div id="conteoClimas" class="row">
+                <!-- Se llenará dinámicamente con JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Resumen -->
+          <div class="alert alert-info mb-0">
+            <h6 class="font-weight-bold mb-2">📝 Resumen Semanal</h6>
+            <p id="resumenSemana" class="mb-0">Calculando resumen...</p>
           </div>
         </div>
       </div>
@@ -79,8 +128,8 @@
 
     <!-- Pronóstico Semanal -->
     <section>
-      <h3 class="h5 fw-bold text-center text-muted mb-4 text-uppercase tracking-wide">Próximos 7 días</h3>
-      <div id="forecast" class="row g-3 justify-content-center">
+      <h3 class="h5 font-weight-bold text-center text-muted mb-4 text-uppercase tracking-amplio">Próximos 7 días</h3>
+      <div id="pronostico" class="row justify-content-center">
         <!-- Se llenará con JS -->
       </div>
     </section>
@@ -91,19 +140,21 @@
 
   </main>
 
-  <footer class="container py-5 mt-auto">
-    <hr class="opacity-10 mb-5">
+  <footer class="app-clima__pie container">
+    <hr class="mb-4">
     <div class="text-center">
-      <p class="text-secondary small opacity-50 mb-1">© Rebel Alliance Systems</p>
-      <p class="text-secondary x-small opacity-50">Módulo 2 – Detalle de Localidad</p>
+      <p class="app-clima__pie-texto mb-1">© Rebel Alliance Systems</p>
+      <p class="app-clima__pie-texto">Módulo 5 – App de Clima (API & POO)</p>
     </div>
   </footer>
 
   <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Scripts propios -->
   <script src="assets/js/data.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
 
 </body>
 

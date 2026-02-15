@@ -46,11 +46,8 @@ body {
     cursor: pointer;
 }
 
+
 /* === 4. Iconos y Elementos === */
-#planetIcon {
-    /* Eliminamos la animación de flotación para ser más serios/minimalistas */
-    /* Opcional: Filtro sepia o escala de grises si quisiéramos menos color */
-}
 
 /* === 5. Botones === */
 .btn-dark {

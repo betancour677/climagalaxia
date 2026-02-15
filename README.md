@@ -1,48 +1,65 @@
-# Rebel Weather — Clima Galáctico 🚀
+# 🌌 Rebel Weather - App de Clima Galáctica (Módulo 5)
 
-¡Bienvenido a **Rebel Weather**, el monitor atmosférico oficial de la Alianza Rebelde! Esta aplicación permite a los pilotos y rebeldes consultar las condiciones climáticas de 10 localidades clave de la galaxia para planificar sus misiones de forma segura.
+**Versión 2.0 - Ahora con Datos Reales y POO**
 
-## 🔗 Enlaces del Proyecto
+Una aplicación web que combina la estética de Star Wars con datos meteorológicos reales obtenidos mediante la API de Open-Meteo. Esta versión introduce arquitectura basada en clases, manejo de asincronía y consumo de APIs REST.
 
-- **Repositorio Público:** [climagalaxia](https://github.com/betancour677/climagalaxia.git)
+## 📋 Novedades de esta versión
 
+-   **Datos en Tiempo Real**: Conexión con Open-Meteo API para obtener clima actual y pronósticos.
+-   **Simulación Galáctica**: Mapeo de coordenadas terrestres a planetas de Star Wars (ej. Tóquio es Coruscant).
+-   **Arquitectura POO**: Código organizado en clases (`WeatherApp`, `ApiClient`) siguiendo principios modernos.
+-   **Estadísticas Dinámicas**: Cálculo automático de promedios, máximas, mínimas y alertas basado en el pronóstico real.
 
-## 📋 Propósito y Alcance (MVP)
+## 🛠️ Arquitectura Técnica
 
-Este proyecto es la primera versión (MVP) de una aplicación de clima diseñada bajo una temática galáctica. Cumple con los siguientes objetivos:
-- Estructura estable con **HTML5 Semántico**.
-- Diseño **Mobile-First** y responsivo utilizando **Bootstrap 5**.
-- Navegación fluida entre el mapa galáctico (Inicio) y el análisis atmosférico de cada planeta (Detalle).
-- Conexión dinámica de datos mediante **JavaScript**.
+### Estructura de Clases
 
-## 🚀 Funcionalidades
+1.  **`ApiClient` (`assets/js/api.js`)**
+    *   **Responsabilidad**: Encapsula la comunicación con la API externa.
+    *   **Métodos principales**:
+        *   `getWeather(lat, lon)`: Realiza la petición `fetch` asíncrona para obtener datos actuales y diarios.
+        *   `getWeatherDescription(code)`: Traduce los códigos WMO numéricos a texto legible y emojis.
 
-- **Inicio (Home):** Grilla responsiva con 10 localidades presentadas como tarjetas premium con imágenes cinematográficas (1:1).
-- **Detalle de Localidad:** Vista ampliada de cada planeta que incluye:
-  - Temperatura actual, humedad y velocidad del viento.
-  - **Humor Galáctico:** Una descripción divertida sobre el clima del lugar.
-  - **Guía de Supervivencia Rebelde:** Consejos tácticos para pilotos.
-  - **Pronóstico Semanal:** Grilla con las condiciones para los próximos 7 días.
-- **Acerca de:** Información técnica sobre el desarrollo del proyecto.
+2.  **`WeatherApp` (`assets/js/app.js`)**
+    *   **Responsabilidad**: Gestiona la lógica de negocio y la manipulación del DOM (Interfaz de Usuario).
+    *   **Métodos principales**:
+        *   `init()`: Detecta la página actual (Home o Detalle) y lanza el proceso correspondiente.
+        *   `renderHome()`: Itera sobre la lista de planetas, solicita su clima y dibuja las tarjetas.
+        *   `renderDetail()`: Carga el pronóstico extendido, calcula estadísticas y actualiza la vista de detalle.
+        *   `calcularEstadisticas(daily)`: Procesa el array de datos diarios para extraer métricas.
 
-## 🛠️ Tecnologías Utilizadas
+3.  **Datos Estáticos (`assets/js/data.js`)**
+    *   Contiene la configuración base de los planetas (`id`, `nombre`, `descripción`, `coordenadas`) que sirve como punto de entrada para las consultas a la API.
 
-- **HTML5:** Uso de etiquetas semánticas (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`).
-- **Bootstrap 5 (v5.3.2):** Implementación de Grid System, componentes (Navbar, Cards, Buttons) y utilidades de espaciado/tipografía por CDN.
-- **JavaScript:** Manipulación dinámica del DOM y gestión de estados para cargar detalles de forma fluida.
-- **Git & GitHub:** Gestión de versiones con commits atómicos y descriptivos siguiendo buenas prácticas.
+## 🌐 API Utilizada
 
-## 📦 Cómo Ejecutar el Proyecto
+**Open-Meteo Weather API**
+*   **URL Base**: `https://api.open-meteo.com/v1/forecast`
+*   **Características**: API gratuita, sin necesidad de API Key, alta precisión.
+*   **Endpoints consumidos**:
+    *   `current`: Para temperatura, código de clima, viento y humedad actuales.
+    *   `daily`: Para pronóstico de 7 días (máximas, mínimas, clima).
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/betancour677/climagalaxia.git
-   ```
-2. Navega a la carpeta del proyecto:
-   ```bash
-   cd rebel_weather_app
-   ```
-3. Abre el archivo `index.html` en tu navegador favorito (o usa una extensión como *Live Server* en VS Code).
+## 📊 Cálculo de Estadísticas
 
----
-© 2025 Rebel Alliance Systems | Desarrollado por un cadete de la resistencia.
+La aplicación procesa la respuesta JSON de la API (`daily`) para generar:
+
+1.  **Temperatura Mínima Semanal**: La temperatura más baja registrada en los 7 días (`Math.min`).
+2.  **Temperatura Máxima Semanal**: La temperatura más alta registrada (`Math.max`).
+3.  **Temperatura Promedio**: Suma de las temperaturas máximas dividida por 7.
+4.  **Distribución de Clima**: Conteo de cuántos días lloverá, habrá sol, etc.
+5.  **Alertas de Clima**:
+    *   Si el promedio > 30°C -> "ALERTA DE OLA DE CALOR".
+    *   Si hay 3 o más días de lluvia -> "SEMANA LLUVIOSA".
+
+## 🚀 Instalación
+
+1.  Clona el repositorio.
+2.  Abre `index.html` en tu navegador.
+    *   *Nota: No requiere servidor backend, pero se recomienda usar una extensión como "Live Server" para evitar bloqueos de CORS en algunos navegadores, aunque Open-Meteo soporta CORS.*
+
+## 🔗 Enlaces
+
+*   [Open-Meteo Docs](https://open-meteo.com/)
+*   [Repositorio GitHub](https://github.com/betancour677/climagalaxia.git)

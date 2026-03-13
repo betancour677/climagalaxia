@@ -1,0 +1,839 @@
+/* =============================================
+   REBEL WEATHER — Estilos Globales SPA (Módulo 6)
+   ============================================= */
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta de colores */
+  --color-bg: #0b0d17;
+  --color-bg-card: rgba(255, 255, 255, 0.04);
+  --color-bg-card-hover: rgba(255, 255, 255, 0.08);
+  --color-surface: #12152a;
+  --color-text: #e8e8f0;
+  --color-text-muted: #8b8da3;
+  --color-accent: #6c63ff;
+  --color-accent-glow: rgba(108, 99, 255, 0.35);
+  --color-hot: #ff6b6b;
+  --color-cold: #4ecdc4;
+  --color-warm: #ffd93d;
+  --color-success: #51cf66;
+  --color-border: rgba(255, 255, 255, 0.06);
+
+  /* Tipografía */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Espaciados */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Transiciones */
+  --ease-out-expo: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-normal: 0.3s var(--ease-out-expo);
+  --transition-slow: 0.5s var(--ease-out-expo);
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #8b83ff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Contenedor ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ── Navbar ── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-2xl);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 900;
+  font-size: 1.3rem;
+  letter-spacing: -0.5px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+  white-space: nowrap;
+}
+
+.navbar__brand:hover {
+  opacity: 0.8;
+  color: var(--color-text);
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.navbar__link:hover,
+.navbar__link.router-link-active {
+  color: var(--color-text);
+}
+
+.navbar__link.router-link-exact-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+/* ── Hero Section ── */
+.hero {
+  text-align: center;
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-text-muted);
+}
+
+/* ── Barra de Búsqueda ── */
+.search-bar {
+  max-width: 500px;
+  margin: 0 auto var(--space-2xl);
+  position: relative;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  padding-left: 3rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-bar__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.search-bar__input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.search-bar__icon {
+  position: absolute;
+  left: var(--space-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Controles (toggle de unidades) ── */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.unit-toggle {
+  display: flex;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.unit-toggle__option {
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-main);
+}
+
+.unit-toggle__option--active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.unit-toggle__option:hover:not(.unit-toggle__option--active) {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Grid de tarjetas ── */
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-2xl);
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+/* ── Tarjeta de Planeta (Home) ── */
+.planet-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.planet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border-color: rgba(108, 99, 255, 0.2);
+  color: inherit;
+}
+
+.planet-card__image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.planet-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.planet-card:hover .planet-card__image img {
+  transform: scale(1.08);
+}
+
+.planet-card__body {
+  padding: var(--space-lg);
+}
+
+.planet-card__name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: var(--space-xs);
+}
+
+.planet-card__weather {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.planet-card__description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: 1.5;
+}
+
+.planet-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.planet-card__temp {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.planet-card__btn {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.planet-card__btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px var(--color-accent-glow);
+  color: #fff;
+}
+
+/* ── Estado de Carga ── */
+.loading {
+  text-align: center;
+  padding: var(--space-3xl) 0;
+}
+
+.loading__spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading__text {
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ── Mensaje "sin resultados" ── */
+.no-results {
+  text-align: center;
+  padding: var(--space-3xl) 0;
+  color: var(--color-text-muted);
+}
+
+.no-results__icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}
+
+.no-results__text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ── Página de Detalle ── */
+.detail-page {
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+.detail-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin-bottom: var(--space-xl);
+  transition: color var(--transition-fast);
+}
+
+.detail-page__back:hover {
+  color: var(--color-accent);
+}
+
+.detail-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.detail-header__image {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto var(--space-lg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.detail-header__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-header__name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin-bottom: var(--space-xs);
+  letter-spacing: -1px;
+}
+
+.detail-header__region {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-accent);
+}
+
+/* ── Tarjeta principal de clima ── */
+.weather-main {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.weather-main__temp {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--color-text), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.weather-main__status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+}
+
+.weather-main__humor {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.weather-main__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.weather-stat {
+  text-align: center;
+}
+
+.weather-stat__label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.weather-stat__value {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* ── Guía de Supervivencia ── */
+.survival-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.survival-card__icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.survival-card__title {
+  font-weight: 800;
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.survival-card__text {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Sección de Estadísticas ── */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
+.stat-box {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.stat-box__label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.stat-box__value {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.stat-box__value--min {
+  color: var(--color-cold);
+}
+
+.stat-box__value--avg {
+  color: var(--color-warm);
+}
+
+.stat-box__value--max {
+  color: var(--color-hot);
+}
+
+/* ── Distribución de climas ── */
+.clima-distribution {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
+.clima-chip {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-md);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.clima-chip__count {
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.clima-chip__name {
+  color: var(--color-text-muted);
+}
+
+/* ── Alerta semanal ── */
+.weekly-alert {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.weekly-alert__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.weekly-alert__message {
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* ── Pronóstico ── */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.forecast-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.forecast-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(108, 99, 255, 0.2);
+}
+
+.forecast-card__day {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.forecast-card__icon {
+  font-size: 1.8rem;
+  margin-bottom: var(--space-sm);
+}
+
+.forecast-card__temp {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.forecast-card__temp-min {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.forecast-card__status {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.footer__text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/* ── Página Acerca ── */
+.about-page {
+  padding: var(--space-3xl) 0;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-page__title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: var(--space-lg);
+}
+
+.about-page__description {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-2xl);
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  text-align: left;
+}
+
+.about-feature {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.about-feature__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.about-feature__title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.about-feature__text {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ── Animación de entrada ── */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  .navbar__links {
+    gap: var(--space-lg);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-main__stats {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .planet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 1.8rem;
+  }
+
+  .weather-main__temp {
+    font-size: 3.5rem;
+  }
+
+  .detail-header__image {
+    width: 160px;
+    height: 160px;
+  }
+}

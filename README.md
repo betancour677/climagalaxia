@@ -49,8 +49,12 @@ Nuevas rutas añadidas para la gestión de usuarios:
 1. **Instalar dependencias**: `npm install`
 2. **Lanzar servidor**: `npm run dev`
 
+## 🌐 Demo en Vivo
+Puedes probar la terminal táctica en el siguiente enlace:
+[https://climagalaxia.netlify.app/](https://climagalaxia.netlify.app/)
+
 ## 🔗 Enlace al Repositorio
-[https://github.com/betancour677/climagalaxia.git](https://github.com/betancour677/climagalaxia.git)
+[https://github.com/betancour677/climagalaxia.git](https://github.com/betancour677/climagalaxia/tree/v3-vue-version)
 
 ---
 *Que la Fuerza acompañe tu código.*

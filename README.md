@@ -25,7 +25,7 @@ Puedes probar la terminal táctica activa aquí:
 La aplicación utiliza un Store centralizado para:
 *   **Datos Climáticos**: Lista de planetas y pronóstico detallado compartido entre vistas.
 *   **Autenticación**: Manejo de sesión de usuario y persistencia local.
-*   **Preferencias**: Cambio dinámico de unidades (°C/°F) y persistencia de favoritos.
+*   **Preferencias Universales**: Cambio dinámico de unidades (°C/°F) y temas visuales activo para todos los visitantes (invitados y registrados), con persistencia de favoritos para operativos logueados.
 *   **Estados de Carga**: Manejo de indicadores "Cargando..." y mensajes de error ante fallos de conexión.
 
 ### 3. Inteligencia Meteorológica y Estadísticas

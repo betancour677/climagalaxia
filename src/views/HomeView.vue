@@ -1,12 +1,11 @@
 <script>
 /**
  * HomeView.vue
- * Vista principal que muestra el héroe y la lista de planetas filtrable.
- * Ahora incluye la lógica para cargar el clima de todos los planetas.
+ * Utiliza Vuex para gestionar la lista de planetas y su clima actual.
+ * Módulo 8: Centralización de estado y carga asíncrona.
  */
-import { PLANETAS } from '../data/planetas'
+import { mapState, mapActions } from 'vuex'
 import PlanetCard from '../components/PlanetCard.vue'
-import { getWeather, getWeatherDescription } from '../services/weatherApi'
 
 export default {
     name: 'HomeView',
@@ -21,17 +20,11 @@ export default {
     },
     data() {
         return {
-            /** Copia reactiva de los planetas para añadirles el clima */
-            planetas: PLANETAS.map(p => ({ 
-                ...p, 
-                temperatura: null, 
-                estadoClima: null 
-            })),
-            busqueda: '',
-            cargando: true
+            busqueda: ''
         }
     },
     computed: {
+        ...mapState(['planetas', 'loading', 'error']),
         /**
          * Filtra los planetas por nombre o región.
          */
@@ -43,27 +36,13 @@ export default {
         }
     },
     async created() {
-        await this.cargarClimas()
+        // Solo cargamos si no se han cargado climas previamente (optimización)
+        if (this.planetas.every(p => p.temperatura === null)) {
+            await this.loadAllPlanetsWeather()
+        }
     },
     methods: {
-        /**
-         * Carga el clima actual para cada uno de los planetas.
-         */
-        async cargarClimas() {
-            this.cargando = true
-            
-            // Creamos un array de promesas para cargar todo en paralelo
-            const promesas = this.planetas.map(async (planeta) => {
-                const data = await getWeather(planeta.lat, planeta.lon)
-                if (data && data.current) {
-                    planeta.temperatura = data.current.temperature_2m
-                    planeta.estadoClima = getWeatherDescription(data.current.weather_code).texto
-                }
-            })
-
-            await Promise.all(promesas)
-            this.cargando = false
-        }
+        ...mapActions(['loadAllPlanetsWeather'])
     }
 }
 </script>
@@ -72,8 +51,8 @@ export default {
     <div class="home-view">
         <!-- Hero Section -->
         <section class="hero">
-            <h1 class="hero__title">Pronóstico Galáctico</h1>
-            <p class="hero__subtitle">Monitor de sistemas en tiempo real</p>
+            <h1 class="hero__title">Monitor Galáctico</h1>
+            <p class="hero__subtitle">Consulta el clima en los sectores clave de la Alianza</p>
         </section>
 
         <!-- Barra de Búsqueda -->
@@ -88,10 +67,17 @@ export default {
             >
         </div>
 
+        <!-- Manejo de Error -->
+        <div v-if="error" class="no-results">
+            <div class="no-results__icon">⚠️</div>
+            <p class="no-results__text">{{ error }}</p>
+            <button @click="loadAllPlanetsWeather" class="btn btn--secondary mt-3">Reintentar Conexión</button>
+        </div>
+
         <!-- Estado de Carga -->
-        <div v-if="cargando && planetas.every(p => p.temperatura === null)" class="loading">
+        <div v-else-if="loading && planetas.every(p => p.temperatura === null)" class="loading">
             <div class="loading__spinner"></div>
-            <p class="loading__text">Escaneando sectores galácticos...</p>
+            <p class="loading__text">Conectando con la red Holonet...</p>
         </div>
 
         <!-- Grid de Planetas -->
@@ -107,13 +93,12 @@ export default {
         <!-- Estado Vacío -->
         <div v-else class="no-results">
             <div class="no-results__icon">🛸</div>
-            <p class="no-results__text">No hay transmisiones de esa zona de la galaxia.</p>
+            <p class="no-results__text">Ese sector no aparece en el mapa galáctico.</p>
         </div>
     </div>
 </template>
 
 <style scoped>
-/* Refuerzo de espaciado para evitar que se vea "pegado" */
 .home-view {
     padding-bottom: var(--space-3xl);
 }
@@ -122,4 +107,6 @@ export default {
     margin-top: var(--space-xl);
     padding: var(--space-md) 0;
 }
+
+.mt-3 { margin-top: var(--space-md); }
 </style>
